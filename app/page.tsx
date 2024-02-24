@@ -1,11 +1,26 @@
 import Image from "next/image";
-import PokemonInfo from "./pokemon-info";
 import { useState } from "react";
+import ComponentWithQuery from "./_components/component-with-query";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-between bg-slate-900">
-      <PokemonInfo />
+    <main className="flex min-h-screen w-full flex-col items-center justify-between bg-slate-900 p-2">
+      <span className="bg-red-400 hidden"></span>
+      <span className="bg-blue-400 hidden"></span>
+      <span className="bg-orange-400 hidden"></span>
+      <span className="bg-green-400 hidden"></span>
+      <span className="bg-yellow-400 hidden"></span>
+
+      <div className="grid grid-cols-4 gap-2">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <>
+            <ComponentWithQuery queryKey="ergetg" />
+            <ComponentWithQuery queryKey="ergetgd" />
+            <ComponentWithQuery queryKey="ergetgdarg" />
+            <ComponentWithQuery queryKey="ergetgdwerg" />
+          </>
+        ))}
+      </div>
     </main>
   );
 }
