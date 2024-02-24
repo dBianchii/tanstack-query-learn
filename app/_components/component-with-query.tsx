@@ -15,7 +15,7 @@ export default function ComponentWithQuery({
   return (
     <div
       onClick={() => query.refetch()}
-      className={`bg-${query.data}-400 rounded-md hover:scale-[1.05] h-40 w-40 transition-all`}
+      className={`bg-${query.data}-400 rounded-md hover:scale-[1.05] h-40 w-40 transition-all flex items-center justify-center text-black font-bold text-xl`}
     >
       {query.data}
     </div>
