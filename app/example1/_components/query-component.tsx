@@ -15,19 +15,20 @@ export default function QueryComponent({
   const query = useQuery({
     queryKey: ["myquery", input],
     queryFn: () => getDataFromServer({ input: input }),
-    initialData,
+    initialData:
+      JSON.stringify(initialInput) === JSON.stringify(input)
+        ? initialData
+        : undefined,
   });
 
-  if (query.isLoading) return <div>isLoading...</div>;
-
   return (
-    <div className="flex justify-center items-center">
-      {JSON.stringify(query.data)}
+    <div className="flex flex-col justify-center items-center gap-2">
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className="border border-black text-black"
       />
+      {query.isLoading ? "loading..." : query.data}
     </div>
   );
 }
