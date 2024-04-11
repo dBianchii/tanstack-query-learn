@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
 import ComponentWithQuery from "./_components/component-with-query";
 
 export default function Home() {
